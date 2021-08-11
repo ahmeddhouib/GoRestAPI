@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  clickhouse:
+    image: yandex/clickhouse-server
+    ports:
+      - 8123:8123
+      - 9000:9000
+      - 5432:5432
+      - 3306:3306
+
+
+  clickhouse-tabix-web-client:
+    image: spoonest/clickhouse-tabix-web-client
+    ports:
+      - 8080:80
+
+
+#Docker Networks
+networks:
+  default:
+    external:
+      name: app
+
